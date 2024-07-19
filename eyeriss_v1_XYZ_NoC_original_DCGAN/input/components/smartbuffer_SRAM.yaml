@@ -1,0 +1,128 @@
+compound_components:
+  version: 0.3
+  classes:
+  - name: smartbuffer_SRAM
+    attributes:
+      technology: 45nm
+      data_storage_depth: 12
+      data_storage_width: 16
+      n_banks: 1
+      n_rdwr_ports: 2
+      datawidth: 16
+      ag_datawidth: 5
+      metadata_storage_width: 32
+      metadata_storage_depth: 24
+      metadata_datawidth: 8
+      metadata_counter_width: 3
+      metadata_block_size: 1
+
+    subcomponents:
+      - name: storage
+        class: SRAM
+        attributes:
+          technology: technology
+          width: 16
+          depth: 12
+          datawidth: 16
+          n_rdwr_ports: 2
+          n_banks: 1
+          avg_sparsity: 0.5
+      - name: address_generators[0..1] # one for read, one for write
+        class: intadder
+        attributes:
+          technology: technology
+          datawidth: 8
+      - name: metadata_counters[0..1] # one for read, one for write
+        class: intadder
+        attributes:
+          technology: counter_technology
+          datawidth: 8
+      - name: metadata_storage
+        class: SRAM
+        attributes:
+          technology: technology
+          width: 16
+          depth: 12
+          datawidth: 16
+      - name: intersection_unit  # place holder
+        class: intadder
+        attributes:
+          technology: technology
+          width: 16
+
+    actions:
+      - name: write
+        arguments:
+          data_delta: 0..1
+          address_delta: 0..n_banks
+        subcomponents:
+          - name: storage
+            actions:
+              - name: write
+                arguments:
+                  data_delta: data_delta
+                  address_delta: address_delta
+      - name: read
+        arguments:
+          data_delta: 0..1
+          address_delta: 0..n_banks
+        subcomponents:
+          - name: storage
+            actions:
+              - name: read
+                arguments:
+                  data_delta: data_delta
+                  address_delta: address_delta
+      - name: gated_write
+        subcomponents:
+          - name: storage
+            actions:
+            - name: idle
+      - name: gated_read
+        subcomponents:
+          - name: storage
+            actions:
+            - name: idle
+      - name: address_generation
+        subcomponents:
+          - name: address_generators[0]
+            actions:
+              - name: add
+      - name: metadata_read
+        subcomponents:
+          - name: metadata_storage
+            actions:
+              - name: read
+      - name: metadata_write
+        subcomponents:
+          - name: metadata_storage
+            actions:
+              - name: write
+      - name: gated_metadata_read
+        subcomponents:
+          - name: metadata_storage
+            actions:
+              - name: idle
+      - name: gated_metadata_write
+        subcomponents:
+          - name: metadata_storage
+            actions:
+              - name: idle
+      - name: decompression_count
+        subcomponents:
+          - name: metadata_counters[1]
+            actions:
+              - name: add
+      - name: compression_count
+        subcomponents:
+          - name: metadata_counters[0]
+            actions:
+              - name: add
+      - name: idle
+        subcomponents:
+          - name: storage
+            actions:
+              - name: idle
+          - name: storage
+            actions:
+              - name: idle

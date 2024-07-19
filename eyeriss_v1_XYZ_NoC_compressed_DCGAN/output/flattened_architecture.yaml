@@ -1,0 +1,194 @@
+architecture:
+    version: '0.4'
+    local:
+      - name: eyeriss_like.PE[0..1727].ifmap_spad
+        class: storage
+        subclass: smartbuffer_RF
+        attributes:
+            data_storage_depth: 12
+            data_storage_width: 16
+            n_banks: 1
+            datawidth: 16
+            metadata_storage_width: 8
+            metadata_storage_depth: 4
+            metadata_datawidth: 4
+            metadata_block_size: 2
+            read_bandwidth: 2
+            write_bandwidth: 2
+            meshX: 12
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            memory_depth: 12
+            memory_width: 16
+            n_rdwr_ports: 2
+            n_buffets: 1
+      - name: eyeriss_like.PE[0..1727].weights_spad
+        class: storage
+        subclass: smartbuffer_RF
+        attributes:
+            data_storage_depth: 192
+            data_storage_width: 16
+            n_banks: 1
+            datawidth: 16
+            read_bandwidth: 2
+            write_bandwidth: 2
+            meshX: 12
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            memory_depth: 12
+            memory_width: 16
+            n_rdwr_ports: 2
+            n_buffets: 1
+      - name: eyeriss_like.PE[0..1727].psum_spad
+        class: storage
+        subclass: smartbuffer_RF
+        attributes:
+            data_storage_depth: 16
+            data_storage_width: 16
+            n_banks: 1
+            datawidth: 16
+            meshX: 12
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            memory_depth: 12
+            memory_width: 16
+            n_rdwr_ports: 2
+            n_buffets: 1
+      - name: eyeriss_like.PE[0..1727].mac
+        class: compute
+        subclass: intmac
+        attributes:
+            meshX: 12
+            datawidth: 16
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            num_pipeline_stages: 2
+            latency: "5ns"
+      - name: eyeriss_like.DRAM
+        class: DRAM
+        attributes:
+            width: 64
+            block_size: 4
+            datawidth: 16
+            metadata_storage_width: 60
+            metadata_datawidth: 5
+            metadata_block_size: 12
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            type: "LPDDR4"
+      - name: eyeriss_like.weights_glb
+        class: storage
+        subclass: smartbuffer_SRAM
+        attributes:
+            data_storage_depth: 16384
+            data_storage_width: 64
+            block_size: 4
+            n_banks: 2
+            read_bandwidth: 16
+            write_bandwidth: 16
+            metadata_storage_depth: 2048
+            metadata_storage_width: 32
+            metadata_block_size: 8
+            metadata_datawidth: 4
+            decompression_supported: true
+            compression_supported: true
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_rdwr_ports: 2
+            datawidth: 16
+            ag_datawidth: 5
+            metadata_counter_width: 3
+      - name: eyeriss_like.shared_glb
+        class: storage
+        subclass: smartbuffer_SRAM
+        attributes:
+            data_storage_depth: 12800
+            data_storage_width: 64
+            block_size: 4
+            n_banks: 25
+            read_bandwidth: 16
+            write_bandwidth: 16
+            metadata_storage_depth: 4096
+            metadata_storage_width: 32
+            metadata_block_size: 8
+            metadata_datawidth: 4
+            decompression_supported: true
+            compression_supported: true
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_rdwr_ports: 2
+            datawidth: 16
+            ag_datawidth: 5
+            metadata_counter_width: 3
+      - name: eyeriss_like.ifmap_NoC
+        class: XYZ_NoC
+        attributes:
+            datawidth: 16
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_PE_depth: 12
+            total_PEs: 1728
+            Y_X_Z_wire_avg_length: 2mm
+      - name: eyeriss_like.weights_NoC
+        class: XYZ_NoC
+        attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_PE_depth: 12
+            total_PEs: 1728
+            Y_X_Z_wire_avg_length: 2mm
+      - name: eyeriss_like.psum_write_NoC
+        class: XYZ_NoC
+        attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_PE_depth: 12
+            total_PEs: 1728
+            Y_X_Z_wire_avg_length: 2mm
+      - name: eyeriss_like.psum_read_NoC
+        class: XYZ_NoC
+        attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+            technology: 45nm
+            global_cycle_seconds: 1e-09
+            n_PE_depth: 12
+            total_PEs: 1728
+            Y_X_Z_wire_avg_length: 2mm

@@ -1,0 +1,478 @@
+# action_counts:
+#   local:
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 3209357
+#       name: write
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 6418714
+#       name: read
+#     name: eyeriss_like.shared_glb
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 3209357
+#       name: broadcast
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 2342000
+#       name: interleaved_multicast
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 2342000
+#       name: broadcast
+#     name: eyeriss_like.ifmap_NoC
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 14040320
+#       name: broadcast
+#     name: eyeriss_like.psum_write_NoC
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 14040320
+#       name: broadcast
+#     name: eyeriss_like.psum_read_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         row_id: 1
+#         col_id: 1
+#         depth_id: 1
+#       counts: 6667
+#       name: unicast
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 6667
+#       name: grouped_multicast
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         row_id: 1
+#         col_id: 1
+#         depth_id: 11
+#       counts: 6667
+#       name: systolic_1D
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         depth_id: 11
+#       counts: 6667
+#       name: systolic_2D
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 6667
+#       name: systolic_3D
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         n_rows: 11
+#         n_cols_per_row: 11
+#         depth_id: 11
+#       counts: 6667
+#       name: parallel_systolic_2D
+#     name: eyeriss_like.weights_NoC
+
+#   - action_counts:
+#     - counts: 50000
+#       name: idle
+#     - arguments:
+#         row_id: 11
+#         n_cols_per_row: 11
+#         n_depth_per_col: 11
+#       counts: 6667
+#       name: parallel_systolic_1D
+#     name: eyeriss_like.weights_NoC
+
+#   # Actions for each PE from 0 to 1727
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 895988
+#       name: write
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 447994
+#       name: read
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 447994
+#       name: read
+#     name: eyeriss_like.PE[0..1727].weights_spad
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 466661
+#       name: write
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 8716715
+#       name: read
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 1244425
+#       name: write
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 6217227
+#       name: read
+#     name: eyeriss_like.PE[0..1727].ifmap_spad
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 466661
+#       name: write
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 1559984
+#       name: read
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 0
+#       counts: 8279915
+#       name: write
+#     - arguments:
+#         address_delta: 1
+#         data_delta: 1
+#       counts: 4139957
+#       name: read
+#     - arguments:
+#         address_delta: 0
+#         data_delta: 0
+#       counts: 4139957
+#       name: write
+#     name: eyeriss_like.PE[0..1727].psum_spad
+
+#   - action_counts:
+#     - counts: 100000
+#       name: idle
+#     - counts: 9956038
+#       name: mac_gated
+#     - counts: 2262560
+#       name: mac_random
+#     - counts: 3393841
+#       name: mac_reused
+#     name: eyeriss_like.PE[0..1727].mac
+#   version: 0.2
+
+action_counts:
+  local:
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 3209357
+      name: write
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 6418714
+      name: read
+    name: eyeriss_like.shared_glb
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 3209357
+      name: write
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 6418714
+      name: read
+    name: eyeriss_like.weights_glb
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 3209357
+      name: broadcast
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 2342000
+      name: interleaved_multicast
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 2342000
+      name: broadcast
+    name: eyeriss_like.ifmap_NoC
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 14040320
+      name: broadcast
+    name: eyeriss_like.psum_write_NoC
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 14040320
+      name: broadcast
+    name: eyeriss_like.psum_read_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        row_id: 1
+        col_id: 1
+        depth_id: 1
+      counts: 6667
+      name: unicast
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 6667
+      name: grouped_multicast
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        row_id: 1
+        col_id: 1
+        depth_id: 11
+      counts: 6667
+      name: systolic_1D
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        depth_id: 11
+      counts: 6667
+      name: systolic_2D
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 6667
+      name: systolic_3D
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        n_rows: 11
+        n_cols_per_row: 11
+        depth_id: 11
+      counts: 6667
+      name: parallel_systolic_2D
+    name: eyeriss_like.weights_NoC
+
+  - action_counts:
+    - counts: 50000
+      name: idle
+    - arguments:
+        row_id: 11
+        n_cols_per_row: 11
+        n_depth_per_col: 11
+      counts: 6667
+      name: parallel_systolic_1D
+    name: eyeriss_like.weights_NoC
+
+  # Actions for each PE from 0 to 1727
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 895988
+      name: write
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 447994
+      name: read
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 447994
+      name: read
+    name: eyeriss_like.PE[0..1727].weights_spad
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 466661
+      name: write
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 8716715
+      name: read
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 1244425
+      name: write
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 6217227
+      name: read
+    name: eyeriss_like.PE[0..1727].ifmap_spad
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 466661
+      name: write
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 1559984
+      name: read
+    - arguments:
+        address_delta: 1
+        data_delta: 0
+      counts: 8279915
+      name: write
+    - arguments:
+        address_delta: 1
+        data_delta: 1
+      counts: 4139957
+      name: read
+    - arguments:
+        address_delta: 0
+        data_delta: 0
+      counts: 4139957
+      name: write
+    name: eyeriss_like.PE[0..1727].psum_spad
+
+  - action_counts:
+    - counts: 100000
+      name: idle
+    - counts: 9956038
+      name: mac_gated
+    - counts: 2262560
+      name: mac_random
+    - counts: 3393841
+      name: mac_reused
+    name: eyeriss_like.PE[0..1727].mac
+  version: 0.2

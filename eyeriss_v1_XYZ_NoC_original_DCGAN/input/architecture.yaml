@@ -1,0 +1,171 @@
+architecture:
+  version: 0.3
+  subtree:
+    - name: eyeriss_like
+      attributes:
+        technology: 45nm
+      local:
+        - name: DRAM
+          class: DRAM
+          attributes:
+            width: 64
+            block_size: 4
+            datawidth: 16
+            metadata_storage_width: 60
+            metadata_datawidth: 5
+            metadata_block_size: 12
+
+        - name: weights_glb
+          class: storage
+          subclass: smartbuffer_SRAM
+          attributes:
+            data_storage_depth: 16384  # n_banks * memory_depth for weights_glb
+            data_storage_width: 64
+            block_size: 4
+            n_banks: 2
+            read_bandwidth: 16
+            write_bandwidth: 16
+            metadata_storage_depth: 2048  # metadata storage depth
+            metadata_storage_width: 32
+            metadata_block_size: 8
+            metadata_datawidth: 4
+            decompression_supported: true
+            compression_supported: true
+
+        - name: shared_glb
+          class: storage
+          subclass: smartbuffer_SRAM
+          attributes:
+            data_storage_depth: 12800  # bank_depth * n_banks for shared_glb
+            data_storage_width: 64
+            block_size: 4
+            n_banks: 25
+            read_bandwidth: 16
+            write_bandwidth: 16
+            metadata_storage_depth: 4096
+            metadata_storage_width: 32
+            metadata_block_size: 8
+            metadata_datawidth: 4
+            decompression_supported: true
+            compression_supported: true
+
+        # - name: shared_glb
+        #   class: storage
+        #   subclass: smartbuffer_SRAM
+        #   attributes:
+        #     data_storage_depth: 12800
+        #     data_storage_width: 64
+        #     block_size: 4
+        #     n_banks: 25
+        #     read_bandwidth: 16
+        #     write_bandwidth: 16
+        #     metadata_storage_depth: 4096
+        #     metadata_storage_width: 32
+        #     metadata_block_size: 8
+        #     metadata_datawidth: 4
+        #     decompression_supported: true # decompress data from parent (output data)
+        #     compression_supported: true   # compress data to send to parent (output data)
+
+        - name: ifmap_NoC
+          class: XYZ_NoC
+          attributes:
+            datawidth: 16
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+
+        - name: weights_NoC
+          class: XYZ_NoC
+          attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+
+        - name: psum_write_NoC
+          class: XYZ_NoC
+          attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+
+        - name: psum_read_NoC
+          class: XYZ_NoC
+          attributes:
+            datawidth: 64
+            X_comparator_width: 5
+            Y_comparator_width: 5
+            Z_comparator_width: 4
+            n_PE_rows: 12
+            n_PE_cols: 12
+            n_PE_depths: 12
+            X_Y_wire_avg_length: 2mm
+            Y_Z_wire_avg_length: 2mm
+            X_Z_wire_avg_length: 2mm
+
+      subtree:
+        - name: PE[0..1727]
+          local:
+            - name: ifmap_spad
+              class: storage
+              subclass: smartbuffer_RF
+              attributes:
+                data_storage_depth: 12
+                data_storage_width: 16
+                n_banks: 1
+                datawidth: 16
+                metadata_storage_width: 8
+                metadata_storage_depth: 4
+                metadata_datawidth: 4
+                metadata_block_size: 2
+                read_bandwidth: 2
+                write_bandwidth: 2
+                meshX: 12
+
+            - name: weights_spad
+              class: storage
+              subclass: smartbuffer_RF
+              attributes:
+                data_storage_depth: 192
+                data_storage_width: 16
+                n_banks: 1
+                datawidth: 16
+                read_bandwidth: 2
+                write_bandwidth: 2
+                meshX: 12
+
+            - name: psum_spad
+              class: storage
+              subclass: smartbuffer_RF
+              attributes:
+                data_storage_depth: 16
+                data_storage_width: 16
+                n_banks: 1
+                datawidth: 16
+                meshX: 12
+
+            - name: mac
+              class: compute
+              subclass: intmac
+              attributes:
+                meshX: 12
+                datawidth: 16

@@ -1,0 +1,632 @@
+ERT_summary:
+    version: '0.4'
+    table_summary:
+      - name: eyeriss_like.PE[0..1727].mac
+        actions:
+          - name: mac_random
+            energy: 1.0
+          - name: mac_reused
+            energy: 1.0
+          - name: mac_gated
+            energy: 1.0
+          - name: idle
+            energy: 1.0
+        primitive_estimation(s):
+          - name: eyeriss_like.PE[0..1727].mac
+            estimator: dummy_table
+      - name: eyeriss_like.DRAM
+        actions:
+          - name: read
+            energy: 512.0
+          - name: write
+            energy: 512.0
+          - name: idle
+            energy: 0.0
+        primitive_estimation(s):
+          - name: eyeriss_like.DRAM
+            estimator: CACTI
+      - name: eyeriss_like.PE[0..1727].ifmap_spad
+        actions:
+          - name: write
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: read
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: idle
+            energy: 3.0
+        primitive_estimation(s):
+          - name: storage
+            estimator: dummy_table
+          - name: address_generators[0]
+            estimator: dummy_table
+          - name: address_generators[1]
+            estimator: dummy_table
+          - name: address_generators[0..1]
+            estimator: dummy_table
+      - name: eyeriss_like.PE[0..1727].weights_spad
+        actions:
+          - name: write
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: read
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: idle
+            energy: 3.0
+        primitive_estimation(s):
+          - name: storage
+            estimator: dummy_table
+          - name: address_generators[0]
+            estimator: dummy_table
+          - name: address_generators[1]
+            estimator: dummy_table
+          - name: address_generators[0..1]
+            estimator: dummy_table
+      - name: eyeriss_like.PE[0..1727].psum_spad
+        actions:
+          - name: write
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: read
+            average_energy: 3.0
+            max_energy: 3.0
+            min_energy: 3.0
+          - name: idle
+            energy: 3.0
+        primitive_estimation(s):
+          - name: storage
+            estimator: dummy_table
+          - name: address_generators[0]
+            estimator: dummy_table
+          - name: address_generators[1]
+            estimator: dummy_table
+          - name: address_generators[0..1]
+            estimator: dummy_table
+      - name: eyeriss_like.weights_glb
+        actions:
+          - name: write
+            average_energy: 0.550796
+            max_energy: 1.101591
+            min_energy: 0.0
+          - name: read
+            average_energy: 0.398882
+            max_energy: 0.797763
+            min_energy: 0.0
+          - name: gated_write
+            energy: 0.0
+          - name: gated_read
+            energy: 0.0
+          - name: address_generation
+            energy: 1.0
+          - name: metadata_read
+            energy: 0.545265
+          - name: metadata_write
+            energy: 0.718069
+          - name: gated_metadata_read
+            energy: 0.0
+          - name: gated_metadata_write
+            energy: 0.0
+          - name: decompression_count
+            energy: 1.0
+          - name: compression_count
+            energy: 1.0
+          - name: idle
+            energy: 0.0
+        primitive_estimation(s):
+          - name: storage
+            estimator: CACTI
+          - name: address_generators[0]
+            estimator: dummy_table
+          - name: metadata_storage
+            estimator: CACTI
+          - name: metadata_counters[1]
+            estimator: dummy_table
+          - name: metadata_counters[0]
+            estimator: dummy_table
+      - name: eyeriss_like.shared_glb
+        actions:
+          - name: write
+            average_energy: 3.47425
+            max_energy: 6.9485
+            min_energy: 0.0
+          - name: read
+            average_energy: 2.516022
+            max_energy: 5.032045
+            min_energy: 0.0
+          - name: gated_write
+            energy: 0.0
+          - name: gated_read
+            energy: 0.0
+          - name: address_generation
+            energy: 1.0
+          - name: metadata_read
+            energy: 0.545265
+          - name: metadata_write
+            energy: 0.718069
+          - name: gated_metadata_read
+            energy: 0.0
+          - name: gated_metadata_write
+            energy: 0.0
+          - name: decompression_count
+            energy: 1.0
+          - name: compression_count
+            energy: 1.0
+          - name: idle
+            energy: 0.0
+        primitive_estimation(s):
+          - name: storage
+            estimator: CACTI
+          - name: address_generators[0]
+            estimator: dummy_table
+          - name: metadata_storage
+            estimator: CACTI
+          - name: metadata_counters[1]
+            estimator: dummy_table
+          - name: metadata_counters[0]
+            estimator: dummy_table
+      - name: eyeriss_like.ifmap_NoC
+        actions:
+          - name: broadcast
+            average_energy: 25.0
+            max_energy: 36.0
+            min_energy: 14.0
+          - name: unicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: grouped_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: interleaved_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_3D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: idle
+            energy: 36.0
+        primitive_estimation(s):
+          - name: Y_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..0]
+            estimator: dummy_table
+          - name: Y_X_Z_wire
+            estimator: Aladdin_table
+          - name: Y_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..11]
+            estimator: dummy_table
+          - name: X_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..1]
+            estimator: dummy_table
+          - name: X_memory_controller[0..2]
+            estimator: dummy_table
+          - name: X_memory_controller[0..3]
+            estimator: dummy_table
+          - name: X_memory_controller[0..4]
+            estimator: dummy_table
+          - name: X_memory_controller[0..5]
+            estimator: dummy_table
+          - name: X_memory_controller[0..6]
+            estimator: dummy_table
+          - name: X_memory_controller[0..7]
+            estimator: dummy_table
+          - name: X_memory_controller[0..8]
+            estimator: dummy_table
+          - name: X_memory_controller[0..9]
+            estimator: dummy_table
+          - name: X_memory_controller[0..10]
+            estimator: dummy_table
+      - name: eyeriss_like.weights_NoC
+        actions:
+          - name: broadcast
+            average_energy: 25.0
+            max_energy: 36.0
+            min_energy: 14.0
+          - name: unicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: grouped_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: interleaved_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_3D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: idle
+            energy: 36.0
+        primitive_estimation(s):
+          - name: Y_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..0]
+            estimator: dummy_table
+          - name: Y_X_Z_wire
+            estimator: Aladdin_table
+          - name: Y_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..11]
+            estimator: dummy_table
+          - name: X_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..1]
+            estimator: dummy_table
+          - name: X_memory_controller[0..2]
+            estimator: dummy_table
+          - name: X_memory_controller[0..3]
+            estimator: dummy_table
+          - name: X_memory_controller[0..4]
+            estimator: dummy_table
+          - name: X_memory_controller[0..5]
+            estimator: dummy_table
+          - name: X_memory_controller[0..6]
+            estimator: dummy_table
+          - name: X_memory_controller[0..7]
+            estimator: dummy_table
+          - name: X_memory_controller[0..8]
+            estimator: dummy_table
+          - name: X_memory_controller[0..9]
+            estimator: dummy_table
+          - name: X_memory_controller[0..10]
+            estimator: dummy_table
+      - name: eyeriss_like.psum_write_NoC
+        actions:
+          - name: broadcast
+            average_energy: 25.0
+            max_energy: 36.0
+            min_energy: 14.0
+          - name: unicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: grouped_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: interleaved_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_3D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: idle
+            energy: 36.0
+        primitive_estimation(s):
+          - name: Y_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..0]
+            estimator: dummy_table
+          - name: Y_X_Z_wire
+            estimator: Aladdin_table
+          - name: Y_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..11]
+            estimator: dummy_table
+          - name: X_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..1]
+            estimator: dummy_table
+          - name: X_memory_controller[0..2]
+            estimator: dummy_table
+          - name: X_memory_controller[0..3]
+            estimator: dummy_table
+          - name: X_memory_controller[0..4]
+            estimator: dummy_table
+          - name: X_memory_controller[0..5]
+            estimator: dummy_table
+          - name: X_memory_controller[0..6]
+            estimator: dummy_table
+          - name: X_memory_controller[0..7]
+            estimator: dummy_table
+          - name: X_memory_controller[0..8]
+            estimator: dummy_table
+          - name: X_memory_controller[0..9]
+            estimator: dummy_table
+          - name: X_memory_controller[0..10]
+            estimator: dummy_table
+      - name: eyeriss_like.psum_read_NoC
+        actions:
+          - name: broadcast
+            average_energy: 25.0
+            max_energy: 36.0
+            min_energy: 14.0
+          - name: unicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: grouped_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: interleaved_multicast
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: systolic_3D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_2D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: parallel_systolic_1D
+            average_energy: 19.5
+            max_energy: 36.0
+            min_energy: 3.0
+          - name: idle
+            energy: 36.0
+        primitive_estimation(s):
+          - name: Y_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..0]
+            estimator: dummy_table
+          - name: Y_X_Z_wire
+            estimator: Aladdin_table
+          - name: Y_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Y_memory_controller[0..11]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..1]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..2]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..3]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..4]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..5]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..6]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..7]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..8]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..9]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..10]
+            estimator: dummy_table
+          - name: Z_memory_controller[0..11]
+            estimator: dummy_table
+          - name: X_memory_controller[0..0]
+            estimator: dummy_table
+          - name: X_memory_controller[0..1]
+            estimator: dummy_table
+          - name: X_memory_controller[0..2]
+            estimator: dummy_table
+          - name: X_memory_controller[0..3]
+            estimator: dummy_table
+          - name: X_memory_controller[0..4]
+            estimator: dummy_table
+          - name: X_memory_controller[0..5]
+            estimator: dummy_table
+          - name: X_memory_controller[0..6]
+            estimator: dummy_table
+          - name: X_memory_controller[0..7]
+            estimator: dummy_table
+          - name: X_memory_controller[0..8]
+            estimator: dummy_table
+          - name: X_memory_controller[0..9]
+            estimator: dummy_table
+          - name: X_memory_controller[0..10]
+            estimator: dummy_table

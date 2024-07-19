@@ -1,0 +1,24 @@
+energy_estimation:
+    version: '0.4'
+    components:
+      - name: eyeriss_like.shared_glb
+        energy: 4183905.148416
+      - name: eyeriss_like.weights_glb
+        energy: 8367810.296832
+      - name: eyeriss_like.weights_NoC
+        energy: 2140000.0
+      - name: eyeriss_like.ifmap_NoC
+        energy: 244800000.0
+      - name: eyeriss_like.psum_write_NoC
+        energy: 739088000.0
+      - name: eyeriss_like.psum_read_NoC
+        energy: 739088000.0
+      - name: eyeriss_like.PE[0..1727].weights_spad
+        energy: 8555904.0
+      - name: eyeriss_like.PE[0..1727].ifmap_spad
+        energy: 77339208.0
+      - name: eyeriss_like.PE[0..1727].psum_spad
+        energy: 85979136.0
+      - name: eyeriss_like.PE[0..1727].mac
+        energy: 24089880.0
+    Total: 1933631843.4452481
